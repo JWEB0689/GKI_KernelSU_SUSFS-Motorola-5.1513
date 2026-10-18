@@ -60,7 +60,7 @@ jobs:
       susfs_commit: ${{ steps.fetch.outputs.susfs_commit }}
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Fetch Commits
         id: fetch
         uses: ./.github/actions/fetch-commits
@@ -230,7 +230,7 @@ jobs:
     - build-bypass
     steps:
     - name: Download Misc Artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v7
       with:
         path: ./downloaded-artifacts
         pattern: '*-Rejects'
@@ -274,7 +274,7 @@ jobs:
         fi
 
     - name: Upload AIO-REJ Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: AIO-REJ
         path: AIO-REJ.zip
@@ -360,7 +360,7 @@ jobs:
         testing: false
 
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         fetch-depth: 0
 
@@ -444,14 +444,14 @@ jobs:
         fi
 
     - name: Download AnyKernel3 Artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v7
       with:
         path: ./downloaded-artifacts
         pattern: '*-AnyKernel3'
         merge-multiple: false
 
     - name: Download AIO-REJ Artifact
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v7
       with:
         path: ./downloaded-artifacts
         pattern: 'AIO-REJ'
