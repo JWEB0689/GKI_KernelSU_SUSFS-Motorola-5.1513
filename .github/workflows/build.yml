@@ -36,7 +36,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Parse kernel version
       id: parse
@@ -395,7 +395,7 @@ jobs:
         fi
 
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: ${{ steps.extract.outputs.file_name }}-AnyKernel3
         path: ${{ github.workspace }}/AnyKernel3/**
@@ -404,7 +404,7 @@ jobs:
 
     - name: Upload Rejects
       if: ${{ always() && inputs.variant != 'Bypass' && steps.scan.outputs.rej_count > 0 }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: ${{ steps.extract.outputs.file_name }}-Rejects
         path: patch-rejects/
